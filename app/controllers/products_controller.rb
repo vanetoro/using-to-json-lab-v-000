@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
 
   def data
     @product = Product.find(params[:id])
-    render json: @product.to_json
+    format.json {render json: @product.to_json(only:[:name, :price, :description, :inventory])}
   end
 
   private
